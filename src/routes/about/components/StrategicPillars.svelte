@@ -66,7 +66,7 @@
 
 		<!-- Sectorial priority -->
 		<div class="flex items-center gap-5 py-8 border-b border-white/20 mb-12">
-			<img src="/Sectorial priority.svg" alt="Sectorial priority" class="w-14 h-14 shrink-0" />
+			<img src="/Sectorial priority white.svg" alt="Sectorial priority" class="w-14 h-14 shrink-0" />
 			<div>
 				<p class="font-antarctica font-semibold text-white text-sm mb-0.5">Sectorial priority</p>
 				<p class="font-antarctica font-light text-white/70 text-sm">Autonomous mobility</p>

@@ -20,7 +20,7 @@
 			label: 'Global NTN leadership'
 		},
 		{
-			icon: '/Sectorial_priority.svg',
+			icon: '/Sectorial priority.svg',
 			label: 'Sectorial priority'
 		}
 	];
