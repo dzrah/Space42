@@ -118,8 +118,8 @@
 					{/if}
 				</div>
 
-				<a class="hover:opacity-80 transition-opacity" href="#investor-relations">Investor Relations</a>
-				<a class="hover:opacity-80 transition-opacity" href="#media">Media</a>
+				<a class="hover:opacity-80 transition-opacity" href="https://space42.ai/en/investor-relations" target="_blank" rel="noopener noreferrer">Investor Relations</a>
+				<a class="hover:opacity-80 transition-opacity" href="https://space42.ai/en/press-release" target="_blank" rel="noopener noreferrer">Media</a>
 			</div>
 			<div class="hidden lg:flex">
 				<a
@@ -171,10 +171,10 @@
 						{/if}
 					</div>
 
-					<a href="#investor-relations" class="py-2 hover:opacity-80 transition-opacity" onclick={closeMenu}>
+					<a href="https://space42.ai/en/investor-relations" target="_blank" rel="noopener noreferrer" class="py-2 hover:opacity-80 transition-opacity" onclick={closeMenu}>
 						Investor Relations
 					</a>
-					<a href="#media" class="py-2 hover:opacity-80 transition-opacity" onclick={closeMenu}>
+					<a href="https://space42.ai/en/press-release" target="_blank" rel="noopener noreferrer" class="py-2 hover:opacity-80 transition-opacity" onclick={closeMenu}>
 						Media
 					</a>
 					<a

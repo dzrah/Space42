@@ -6,8 +6,8 @@
 	const links = [
 		{ label: 'About Us', href: '#about-us' },
 		{ label: 'Solutions', href: '#solutions' },
-		{ label: 'Investor Relations', href: '#investor-relations' },
-		{ label: 'Media', href: '#media' },
+		{ label: 'Investor Relations', href: 'https://space42.ai/en/investor-relations' },
+		{ label: 'Media', href: 'https://space42.ai/en/press-release' },
 		{ label: 'Contact Us', href: '#contact' }
 	];
 </script>
