@@ -9,35 +9,28 @@
 	let slides = [
 		{
 			id: 1,
-			image: '/img-1.png',
+			image: '/img-1.webp',
 			title: 'DEFENSE',
 			description:
 				'Thuraya-4 delivers sovereign, always-on L-band connectivity for ministries of defense, interior and emergency services. Built for extreme conditions, the Thuraya-4 supports rugged, field-deployable terminals interoperable with tactical radios, enabling secure personnel/asset tracking.'
 		},
 		{
-			id: 2,
-			image: '/img-2.png',
-			title: 'GOVERNMENT',
-			description:
-				'For government agencies, NGOs, and disaster-response teams, Thuraya-4 provides portable, deploy-anywhere satellite broadband with encrypted communications and assured service during crises. Easily integrate with existing systems and take advantage of compliance-ready operations.'
-		},
-		{
 			id: 5,
-			image: '/img-5.png',
+			image: '/img-5.webp',
 			title: 'ENERGY',
 			description:
 				'Keep remote assets online: from deserts and rigs to moving fleets. When fiber stops and cellular fades, operations still need telemetry, voice, and safety comms. Thuraya-4’s resilient L-band makes upstream and midstream sites get back on the grid, with no downtime.'
 		},
 		{
 			id: 3,
-			image: '/img-3.png',
+			image: '/img-3.webp',
 			title: 'MARITIME',
 			description:
 				'Keep fleets connected end-to-end with Thuraya-4. Seamless blue-water coverage, resilient bandwidth in harsh weather and secure data exchange. From container lines to offshore platforms, integrate crew voice, tracking, and operations.'
 		},
 		{
 			id: 4,
-			image: '/img-4.png',
+			image: '/img-4.webp',
 			title: 'AVIATION',
 			description:
 				'From airlines and air cargo to rotorcraft operators, Thuraya-4 powers reliable in-flight communications, real-time weather and route updates, and aircraft tracking. Lightweight, aviation-grade hardware meets strict standards, minimizing power draw for fixed-wing and helicopter missions.'
@@ -51,7 +44,7 @@
 <Section class="relative overflow-hidden" bgClass="bg-transparent">
 	<div class="absolute inset-x-0 top-0 h-[10%] bg-[#f0f1f7] -z-1000000"></div>
 	<div
-		class="absolute inset-x-0 top-[10%] sm:h-[67%] h-[90%] bg-[url('/blue_dark.jpg')] bg-cover bg-center -z-50"
+		class="absolute inset-x-0 top-[10%] sm:h-[67%] h-[90%] bg-[url('/blue_dark.webp')] bg-cover bg-center -z-50"
 	></div>
 	<div class="absolute inset-x-0 bottom-0 sm:h-[40%] h-[5%] bg-[#f0f1f7] -z-1000000"></div>
 
@@ -68,61 +61,62 @@
 			<ProdctCard
 				productUrl="https://www.thuraya.com/en/products-list/land-data/thuraya-ip-neo-m"
 				title="IP NEO M"
-				imgSrc="/Ip_Neo_M.png"
+				imgSrc="/Ip_Neo_M.webp"
 				para="Portable L-band broadband for field teams that need rugged, go-anywhere connectivity in minutes."
 			/>
 			<ProdctCard
 				productUrl="https://www.thuraya.com/en/products-list/land-data/thuraya-ip-neo-c"
 				title="IP NEO C"
-				imgSrc="/Ip_Neo_C.png"
+				imgSrc="/Ip_Neo_C.webp"
 				para="Compact, carry-on satellite terminal delivering reliable voice/data for rapid deployments and remote sites."
 			/>
 			<ProdctCard
 				productUrl="https://www.thuraya.com/en/products-list/land-data/thuraya-voyager-neo"
 				title="VOYAGER NEO"
-				imgSrc="/Voyageur_Neo_.png"
+				imgSrc="/Voyageur_Neo_.webp"
 				para="Mobile satcom hub that turns any vehicle or camp into a secure, shared Wi-Fi workspace off-grid."
 			/>
 			<ProdctCard
 				productUrl="https://www.thuraya.com/en/products-list/land-data/thuraya-commander-neo"
 				title="COMMANDER NEO"
-				imgSrc="/Commander_Neo.png"
+				imgSrc="/Commander_Neo.webp"
 				para="Vehicular L-band system for always-on comms, telemetry, and voice while on the move."
 			/>
 			<ProdctCard
 				productUrl="https://www.thuraya.com/en/products-list/marine/orion-neo"
 				title="ORION NEO"
-				imgSrc="/Orion_Neo.png"
+				imgSrc="/Orion_Neo.webp"
 				para="Maritime terminal providing high-uptime voice and IP data for vessels operating beyond coastal coverage."
 			/>
 
 			<ProdctCard
 				productUrl="https://www.thuraya.com/en/products-list/land-voice/ttac-range"
 				title="TTAC RANGE"
-				imgSrc="/TTAC.png"
+				imgSrc="/TTAC.webp"
 				para="Extends VHF/UHF over satellite, linking ops beyond line-of-sight for instant, wide-area."
 			/>
 			<ProdctCard
 				productUrl="https://www.thuraya.com/en/products-list/aero/uav-aero-terminal-t220"
 				title="T220 System For UAV"
-				imgSrc="/UAV_220.png"
+				imgSrc="/UAV_220.webp"
 				para="Lightweight SATCOM link for unmanned aircraft, enabling BVLOS command, control, and payload data."
 			/>
 			<ProdctCard
 				productUrl="https://www.thuraya.com/en/products-list/aero/fixed-wing-aero-terminal-t320"
 				title="T320 System For Fixed-Wing"
-				imgSrc="/AERO_320.png"
+				imgSrc="/AERO_320.webp"
 				para="Airborne connectivity for fixed-wing platforms, supporting in-flight ops, tracking, and mission."
 			/>
 			<ProdctCard
 				productUrl="https://www.thuraya.com/en/products-list/aero/rotary-wing-aero-terminal-t420"
 				title="T420 System For Rotary-Wing"
-				imgSrc="/Helo_420.png"
+				imgSrc="/Helo_420.webp"
 				para="Helicopter-ready satcom engineered for vibration and rotor-wash, keeping crews connected in flight."
 			/>
 		</div>
 		<div class="flex items-center justify-center">
-			<img class="w-280" src="/T4_Map_ .png" alt="" />
+			<img
+				loading="lazy" class="w-280" src="/T4_Map_.svg" alt="" />
 		</div>
 	</Container>
 
@@ -188,7 +182,8 @@
 
 						<!-- <div class="flex-col items-start justify-start p-5 flex-1">
 						<div class="flex items-center justify-start">
-							<img class="w-50 mb-7" src="/Asset 5.svg" alt="" />
+							<img
+				loading="lazy" class="w-50 mb-7" src="/Asset 5.svg" alt="" />
 						</div>
 						<div
 							class="flex justify-start items-center text-[#121a6b] font-semibold sm:text-[0.9rem] text-[0.8rem] mt-2"

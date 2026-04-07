@@ -9,8 +9,10 @@
 		class="group bg-white flex flex-col items-start w-full rounded-[0.2rem] h-full cursor-pointer"
 	>
 		<div class="flex-col w-full items-start p-5 flex-1">
-			<div class="w-full flex items-center justify-center lg:justify-start">
-				<img class="w-70" src={imgSrc} alt="" />
+			<div class="w-full h-40 flex items-center justify-center lg:justify-start">
+				{#if imgSrc}
+					<img class="w-70 h-full object-contain" src={imgSrc} alt="" />
+				{/if}
 			</div>
 			<div
 				class="text-[#121a6b] font-semibold sm:text-[0.8rem] text-[0.8rem] mt-2 lg:text-left text-center"

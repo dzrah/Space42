@@ -3,6 +3,15 @@
 	import Section from './Section.svelte';
 
 	let isOpen = $state(false);
+	let solutionsOpen = $state(false);
+	let solutionsMobileOpen = $state(false);
+
+	const solutions = [
+		{ label: 'Secure Connectivity', description: 'Reliable communications on Earth.', href: '/secure-connectivity' },
+		{ label: 'Earth Observation', description: 'Understanding the planet through sovereign space infrastructure.', href: '/earth-observation' },
+		{ label: 'Geospatial Intelligence', description: 'Turning space data into actionable insight.', href: '/earth-observation#giq' },
+		{ label: 'Integrated Systems', description: 'Autonomous mobility powered by space.', href: '/autonomous-mobility' }
+	];
 
 	function toggleMenu() {
 		isOpen = !isOpen;
@@ -10,6 +19,7 @@
 
 	function closeMenu() {
 		isOpen = false;
+		solutionsMobileOpen = false;
 	}
 </script>
 
@@ -45,15 +55,75 @@
 			<div
 				class="hidden lg:flex items-center justify-between h-full w-auto gap-10 font-extralight text-white"
 			>
-				<a class="hover:opacity-80 transition-opacity opacity-100" href="#next-gen"
-					>Next Gen Satellite</a
+				<a class="hover:opacity-80 transition-opacity opacity-100" href="/about">About Us</a>
+
+				<!-- Solutions dropdown -->
+				<div
+					role="navigation"
+					class="relative"
+					onmouseenter={() => (solutionsOpen = true)}
+					onmouseleave={() => (solutionsOpen = false)}
 				>
-				<a class="hover:opacity-80 transition-opacity" href="#products">Products</a>
-				<a class="hover:opacity-80 transition-opacity" href="#industry">Industries</a>
+					<button
+						class="flex items-center gap-1 hover:opacity-80 transition-opacity font-extralight"
+						onclick={() => (solutionsOpen = !solutionsOpen)}
+					>
+						Solutions
+						<svg
+							class="w-3 h-3 transition-transform duration-200 {solutionsOpen ? 'rotate-180' : ''}"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							viewBox="0 0 24 24"
+						>
+							<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+						</svg>
+					</button>
+
+					{#if solutionsOpen}
+						<!-- invisible bridge fills the gap so mouseleave doesn't fire -->
+						<div class="absolute top-full left-0 right-0 h-3"></div>
+						<div
+							class="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 bg-[#0d1659] border border-white/10 rounded-sm shadow-2xl z-50 overflow-hidden"
+							style="animation: dropdownIn 0.15s ease-out both;"
+						>
+							<!-- top accent line -->
+							<div class="h-0.5 w-full bg-linear-to-r from-[#0a82dc] to-[#9bd8ff]"></div>
+
+							<div class="py-2">
+								{#each solutions as s, i}
+									<a
+										href={s.href}
+										class="group flex items-start justify-between px-5 py-3.5 hover:bg-white/5 transition-colors duration-150"
+										onclick={() => (solutionsOpen = false)}
+									>
+										<span class="flex flex-col">
+											<span class="text-[0.82rem] font-light text-white group-hover:text-[#9bd8ff] transition-colors leading-snug">
+												{s.label}
+											</span>
+											<span class="text-[0.72rem] font-extralight text-white/45 group-hover:text-white/60 transition-colors mt-0.5 leading-snug">
+												{s.description}
+											</span>
+										</span>
+										<svg class="mt-1 w-3 h-3 shrink-0 text-white/20 group-hover:text-[#9bd8ff] group-hover:translate-x-0.5 transition-all duration-150" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+										</svg>
+									</a>
+									{#if i < solutions.length - 1}
+										<div class="mx-5 h-px bg-white/5"></div>
+									{/if}
+								{/each}
+							</div>
+						</div>
+					{/if}
+				</div>
+
+				<a class="hover:opacity-80 transition-opacity" href="#investor-relations">Investor Relations</a>
+				<a class="hover:opacity-80 transition-opacity" href="#media">Media</a>
 			</div>
 			<div class="hidden lg:flex">
 				<a
-					class="bg-white p-2 text-[#121a6b] rounded-1xl font-extralight cursor-pointer hover:bg-[#0a82dc] transition-all duration-100 hover:text-white"
+					class="inline-block border border-white text-white px-5 py-2 text-sm font-light hover:bg-white hover:text-[#121a6b] transition-all duration-200"
 					href="#contact">Contact Us</a
 				>
 			</div>
@@ -64,18 +134,52 @@
 		<div class="lg:hidden bg-[#121a6b] border-t border-white/10 flex">
 			<Container>
 				<div class="flex flex-col py-4 gap-4 font-extralight text-white">
-					<a href="#next-gen" class="py-2 hover:opacity-80 transition-opacity" onclick={closeMenu}>
-						Next Gen Satellite
+					<a href="/about" class="py-2 hover:opacity-80 transition-opacity" onclick={closeMenu}>
+						About Us
 					</a>
-					<a href="#products" class="py-2 hover:opacity-80 transition-opacity" onclick={closeMenu}>
-						Products
+
+					<!-- Mobile solutions accordion -->
+					<div>
+						<button
+							class="w-full flex items-center justify-between py-2 hover:opacity-80 transition-opacity"
+							onclick={() => (solutionsMobileOpen = !solutionsMobileOpen)}
+						>
+							<span>Solutions</span>
+							<svg
+								class="w-3 h-3 transition-transform duration-200 {solutionsMobileOpen ? 'rotate-180' : ''}"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								viewBox="0 0 24 24"
+							>
+								<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+							</svg>
+						</button>
+
+						{#if solutionsMobileOpen}
+							<div class="flex flex-col pl-4 gap-1 mt-1 border-l border-white/20">
+								{#each solutions as s}
+									<a
+										href={s.href}
+										class="py-2 text-sm hover:opacity-80 transition-opacity"
+										onclick={closeMenu}
+									>
+										{s.label}
+									</a>
+								{/each}
+							</div>
+						{/if}
+					</div>
+
+					<a href="#investor-relations" class="py-2 hover:opacity-80 transition-opacity" onclick={closeMenu}>
+						Investor Relations
 					</a>
-					<a href="#industry" class="py-2 hover:opacity-80 transition-opacity" onclick={closeMenu}>
-						Industries
+					<a href="#media" class="py-2 hover:opacity-80 transition-opacity" onclick={closeMenu}>
+						Media
 					</a>
 					<a
 						href="#contact"
-						class="bg-white px-4 py-2 text-[#121a6b] rounded-1xl text-center hover:bg-[#0a82dc] transition-all duration-100 hover:text-white"
+						class="inline-block border border-white text-white px-5 py-2 text-sm font-light text-center hover:bg-white hover:text-[#121a6b] transition-all duration-200"
 						onclick={closeMenu}
 					>
 						Contact Us

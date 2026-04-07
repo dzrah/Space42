@@ -6,7 +6,7 @@
 
 <div id="next-gen">
 	<Section bgClass="bg-[#f0f1f7]">
-		<Container class="py-10">
+		<Container class="py-12 lg:py-20">
 			<div class="flex w-full items-center justify-center lg:justify-start">
 				<h1 class="font-semibold font-antarctica lg:text-[1.4rem] text-[#121a6b] text-[1.1rem]">
 					Next Generation Satellite
