@@ -7,7 +7,7 @@
 </svelte:head>
 
 <div
-	class="relative w-full min-h-[480px] md:min-h-[540px] lg:min-h-[600px] bg-cover bg-center flex items-center"
+	class="relative w-full min-h-[300px] sm:min-h-[380px] md:min-h-[480px] lg:min-h-[600px] bg-cover bg-center flex items-center"
 	style="background-image: url('/about-us-banner-darker.webp')"
 >
 	<Container class="relative z-10 py-16 lg:py-24">

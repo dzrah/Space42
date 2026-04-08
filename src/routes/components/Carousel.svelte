@@ -53,7 +53,7 @@
 		isPaused = false;
 	}}
 >
-	<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-end w-full min-h-[400px]">
+	<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-end w-full min-h-[300px] md:min-h-[400px]">
 		<div class="relative flex items-end justify-center w-full h-full">
 			<button
 				onclick={prev}
@@ -93,13 +93,13 @@
 		<div class="flex-col justify-center items-center">
 			{#key currentIndex}
 				<div
-					class="text-white md:h-60 h-50 flex-col items-center justify-center"
+					class="text-white flex-col items-center justify-center"
 					in:fade={{ duration: 200 }}
 				>
-					<h2 class="text-3xl font-semibold mb-4 sm:text-[1.7rem] text-[0.8rem]">
+					<h2 class="text-base sm:text-xl lg:text-2xl font-semibold mb-4">
 						{slides[currentIndex].title}
 					</h2>
-					<p class="text-white/80 leading-relaxed lg:text-[0.9rem] text-[0.7rem]">
+					<p class="text-white/80 leading-relaxed text-xs sm:text-sm lg:text-base">
 						{slides[currentIndex].description}
 					</p>
 				</div>

@@ -49,7 +49,7 @@
 
 		<!-- Map + button -->
 		<div class="flex flex-col items-center gap-6">
-			<img src="/T4_Map_.svg" alt="Thuraya-4 coverage map" class="w-full lg:w-4/5 object-contain" />
+			<img loading="lazy" src="/T4_Map_.webp" alt="Thuraya-4 coverage map" class="w-full lg:w-4/5 object-contain" />
 			<a
 				href="https://www.thuraya.com/en/thuraya-4-ngs/home/index.html"
 				target="_blank"

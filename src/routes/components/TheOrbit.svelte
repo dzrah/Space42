@@ -5,7 +5,7 @@
 
 <Section bgClass="bg-[#f0f1f7]">
 	<Container class="py-12 lg:py-20">
-		<div class="flex flex-col md:flex-row items-center gap-10 lg:gap-16">
+		<div class="flex flex-col items-center md:flex-row md:items-start gap-10 lg:gap-16">
 			<!-- Left: Magazine cover -->
 			<a
 				href="https://www.space42.ai/en/the-orbit-magazine"

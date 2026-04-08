@@ -164,7 +164,13 @@
 		flex-direction: column;
 		width: 100%;
 		gap: 2rem;
-		padding: 6rem 0;
+		padding: 3rem 0;
+	}
+
+	@media (min-width: 640px) {
+		.form-section-wrapper {
+			padding: 4.5rem 0;
+		}
 	}
 
 	@media (min-width: 768px) {
@@ -220,7 +226,7 @@
 
 	.form-mandatory {
 		font-weight: 300;
-		font-size: 0.7rem;
+		font-size: 0.85rem;
 		color: #666666;
 		text-align: center;
 	}

@@ -59,7 +59,7 @@
 </svelte:head>
 
 <!-- Fixed height hero wrapper — overflow-visible so satellite can bleed below -->
-<div class="relative w-full h-[300px] md:h-[320px] lg:h-[360px] xl:h-[400px] overflow-visible">
+<div class="relative w-full h-[260px] sm:h-[300px] md:h-[340px] lg:h-[380px] xl:h-[420px] overflow-visible">
 	<!-- Background images clipped separately -->
 	<div class="absolute inset-0 overflow-hidden">
 		{#each slides as slide, i}
@@ -88,7 +88,7 @@
 						: 'opacity-0 pointer-events-none'}"
 				>
 					<h1
-						class="font-antarctica font-semibold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-wide text-white leading-tight"
+						class="font-antarctica font-semibold text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-wide text-white leading-tight"
 					>
 						{slide.title}
 					</h1>
@@ -104,7 +104,7 @@
 			<!-- Button stays fixed, outside the animated slides -->
 			<a
 				href={slides[current].href}
-				class="absolute bottom-8 left-0 inline-block border border-white text-white px-5 py-2 text-sm font-light hover:bg-white hover:text-[#121a6b] transition-all duration-200"
+				class="absolute bottom-6 left-0 inline-block border border-white text-white px-5 py-2.5 text-sm font-light hover:bg-white hover:text-[#121a6b] transition-all duration-200"
 			>
 				Learn more
 			</a>

@@ -63,7 +63,7 @@
 					</div>
 					<div class="mt-auto w-full px-5 pb-4">
 						<img
-				loading="lazy" src={card.image} alt={card.title} class="w-full h-64 lg:h-80 object-cover block" />
+				loading="lazy" src={card.image} alt={card.title} class="w-full h-44 sm:h-56 lg:h-80 object-cover block" />
 					</div>
 					<!-- Animated bar -->
 					<div class="relative mx-5 mb-4 h-[0.3rem] bg-[#9bd8ff] overflow-hidden">

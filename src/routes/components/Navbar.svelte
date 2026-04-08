@@ -26,11 +26,11 @@
 <Section bgClass="bg-[#121a6b]" class="z-50 fixed top-0 left-0 right-0">
 	<Container>
 		<nav
-			class="flex items-center justify-between flex-1 text-white py-10 w-full h-full text-[0.9rem]"
+			class="flex items-center justify-between flex-1 text-white py-3 sm:py-5 lg:py-10 w-full h-full text-[0.9rem]"
 		>
 			<div class="flex justify-start items-start w-auto h-full">
 				<a href="/" class="flex items-center justify-start"
-					><img class="w-35" src="/Logo.svg" alt="" /></a
+					><img class="w-24 sm:w-28 lg:w-35" src="/Logo.svg" alt="" /></a
 				>
 			</div>
 

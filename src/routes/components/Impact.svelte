@@ -71,7 +71,7 @@
 		</h2>
 
 		<!-- Fixed height wrapper prevents section from jumping between slides -->
-		<div class="min-h-[520px] lg:min-h-[560px] flex flex-col">
+		<div class="min-h-[380px] sm:min-h-[460px] lg:min-h-[560px] flex flex-col">
 		{#key current}
 			<div in:fade={{ duration: 300 }} class="flex flex-col flex-1">
 				<p class="font-antarctica font-bold text-white text-xs lg:text-sm tracking-widest mt-6 mb-1 uppercase">
@@ -82,10 +82,10 @@
 				</p>
 
 				<!-- Slider content — image column uses full section height to push image to bottom -->
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-end flex-1">
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-end flex-1">
 
 					<!-- Left: image pinned to bottom edge, gets clipped cleanly -->
-					<div class="relative flex items-end justify-center min-h-80 lg:min-h-96">
+					<div class="relative flex items-end justify-center min-h-52 sm:min-h-64 lg:min-h-96">
 						<button
 							onclick={prev}
 							class="absolute left-0 top-1/2 -translate-y-1/2 z-10 text-white/50 hover:text-white transition-colors cursor-pointer"
@@ -100,7 +100,7 @@
 				loading="lazy"
 							src={slides[current].image}
 							alt={slides[current].title}
-							class="w-auto max-w-[75%] max-h-[420px] object-contain object-bottom self-end"
+							class="w-auto max-w-[75%] max-h-[220px] sm:max-h-80 lg:max-h-[420px] object-contain object-bottom self-end"
 						/>
 
 						<button
@@ -115,7 +115,7 @@
 					</div>
 
 					<!-- Right: text -->
-					<div class="flex flex-col gap-4 pb-12 lg:pb-20">
+					<div class="flex flex-col gap-4 pb-6 sm:pb-10 lg:pb-20">
 						{#each slides[current].paragraphs as para}
 							<p class="font-antarctica font-light text-white/85 text-xs lg:text-sm leading-relaxed">
 								{para}
@@ -123,7 +123,7 @@
 						{/each}
 
 						<!-- Dots -->
-						<div class="flex gap-2 mt-6">
+						<div class="flex gap-2 mt-6 justify-center md:justify-start">
 							{#each slides as _, i}
 								<button
 									onclick={() => (current = i)}

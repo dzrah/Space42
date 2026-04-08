@@ -56,7 +56,7 @@
 		</div>
 
 		<div
-			class="items-center justify-center lg:my-15 my-8 grid lg:grid-cols-3 lg:gap-5 gap-3 w-full"
+			class="items-center justify-center my-6 lg:my-15 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-5 w-full"
 		>
 			<ProdctCard
 				productUrl="https://www.thuraya.com/en/products-list/land-data/thuraya-ip-neo-m"
@@ -116,7 +116,7 @@
 		</div>
 		<div class="flex items-center justify-center">
 			<img
-				loading="lazy" class="w-280" src="/T4_Map_.svg" alt="" />
+				loading="lazy" class="w-full max-w-2xl" src="/T4_Map_.webp" alt="" />
 		</div>
 	</Container>
 

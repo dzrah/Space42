@@ -74,7 +74,7 @@
 						loading="lazy"
 						src={card.image}
 						alt={card.title}
-						class="w-full h-56 lg:h-72 object-cover"
+						class="w-full h-40 sm:h-48 lg:h-72 object-cover"
 					/>
 					<!-- Paragraphs -->
 					{#each card.paragraphs as para}

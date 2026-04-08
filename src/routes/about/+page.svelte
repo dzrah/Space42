@@ -11,7 +11,7 @@
 
 <Navbar />
 
-<div class="pt-24">
+<div class="pt-16 sm:pt-20 lg:pt-24">
 	<BeyondHorizons />
 	<FromOrbitToImpact />
 	<StrategicPillars />

@@ -105,7 +105,7 @@
 			</h2>
 
 			<!-- Pillar icons + labels row -->
-			<div class="grid grid-cols-3 sm:grid-cols-5 gap-8 mb-8 pb-8 border-b border-[#c3ebff]">
+			<div class="grid grid-cols-2 sm:grid-cols-5 gap-4 sm:gap-6 mb-8 pb-8 border-b border-[#c3ebff]">
 				{#each pillars as pillar, i}
 					<div class="relative flex flex-col items-start">
 						<img
@@ -130,7 +130,7 @@
 			</div>
 
 			<!-- Programs grid -->
-			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6 lg:gap-8">
 				{#each programs as program}
 					<div class="flex flex-col gap-4">
 						<p class="font-antarctica font-semibold text-[#121a6b] text-sm leading-snug">

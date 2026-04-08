@@ -66,12 +66,12 @@
 			Leadership Team
 		</h2>
 
-		<div class="grid grid-cols-3 gap-x-8 gap-y-12">
+		<div class="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-8 sm:gap-x-8 sm:gap-y-12">
 			{#each leadershipTeam as member}
 				<div class="flex flex-col items-start gap-3">
 					<!-- Circular photo -->
 					<div
-						class="w-24 h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden ring-2 ring-[#1a3a6b] bg-[#0a1840] flex-shrink-0"
+						class="w-16 h-16 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden ring-2 ring-[#1a3a6b] bg-[#0a1840] shrink-0"
 					>
 						<img
 				loading="lazy"
