@@ -5,7 +5,7 @@
 	const cards = [
 		{
 			title: 'Digital Twin Integration',
-			subtitle: 'Transforming geospatial data into operational intelligence',
+			subtitle: 'Real-time simulation and monitoring of physical environments',
 			image: '/digital twin screen grab.webp',
 			paragraphs: [
 				'Space42’s Digital Twin platform creates dynamic, real-time representations of physical environments, enabling organisations to simulate, predict, and optimise outcomes before actions are taken in the real world.',
@@ -19,6 +19,7 @@
 				'The platform includes a centralized operations systems, allowing operators to monitor and manage autonomous fleets in real time.',
 			image: '/GIX screen grab.webp',
 			paragraphs: [
+				'Capabilities include:',
 				'- Real-time vehicle monitoring',
 				'- Route planning and fleet coordination',
 				'- Incident response and safety supervision',

@@ -17,8 +17,8 @@
 				</p>
 				<p class="font-antarctica font-light text-gray-700 text-sm leading-relaxed">
 					For customers, this means no loss of visibility. Operations can be monitored consistently
-					across borders, infrastructure, and environments, regardless of weather, light, or terrain.
-					What was episodic intelligence becomes continuous and reliable insight.
+					across borders, infrastructure, and environments regardless of weather, light, or terrain.
+					What was previously intermittent or delayed becomes continuous and reliable insight.
 				</p>
 			</div>
 			<div class="flex flex-col gap-4">

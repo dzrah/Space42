@@ -28,7 +28,7 @@
 			description:
 				'Home and office docking adapter, allowing use of Thuraya XT and XT PRO satellite phones indoors.',
 			image: '/FDU-XT with new logo mar 2026.webp',
-			url: 'https://www.thuraya.com/en/products-list/land-voice/thuraya-fdu-xt-neo'
+			url: 'https://www.thuraya.com/en/products-list/legacy/fdu-xt'
 		},
 		{
 			title: 'XT-LITE',
@@ -76,14 +76,14 @@
 			description:
 				'Turns any NEO terminal into a multi-user hub. Robust voice, data, and PTT with auto-tracking, rugged IPx6 design, and hot field-deployment.',
 			image: '/SPACE42_MGC_HS_2026.webp',
-			url: 'https://www.thuraya.com/en/products-list/land-data/thuraya-mobile-gateway-c'
+			url: 'https://www.thuraya.com/en/products-list/land-data/mobile-gateway-neo-c'
 		},
 		{
 			title: 'MOBILE GATEWAY M WITH IP HANDSET',
 			description:
 				'Turns any NEO terminal into a multi-user hub for rugged maritime environments with robust voice and data.',
 			image: '/SPACE42_MGM_HS_OCT2024.webp',
-			url: 'https://www.thuraya.com/en/products-list/marine/thuraya-mobile-gateway-m'
+			url: 'https://www.thuraya.com/en/products-list/land-data/mobile-gateway-neo-m'
 		},
 		{
 			title: 'AERO 320',
@@ -125,7 +125,7 @@
 			description:
 				'Most affordable maritime satellite voice solution with tracking and monitoring capabilities.',
 			image: '/MarineStar.webp',
-			url: 'https://www.thuraya.com/en/products-list/marine/marinestar'
+			url: 'https://www.thuraya.com/en/products-list/marine/thuraya-marinestar'
 		}
 	];
 </script>
