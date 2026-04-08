@@ -4,11 +4,11 @@
 	const year = new Date().getFullYear();
 
 	const links = [
-		{ label: 'About Us', href: 'http://localhost:5173/about' },
-		{ label: 'Solutions', href: 'http://localhost:5173/#solutions' },
+		{ label: 'About Us', href: '/about' },
+		{ label: 'Solutions', href: '/#solutions' },
 		{ label: 'Investor Relations', href: 'https://space42.ai/en/investor-relations' },
 		{ label: 'Media', href: 'https://space42.ai/en/press-release' },
-		{ label: 'Contact Us', href: 'http://localhost:5173/#contact' }
+		{ label: 'Contact Us', href: '/#contact' }
 	];
 </script>
 
