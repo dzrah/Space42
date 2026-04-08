@@ -13,19 +13,20 @@
 			<div class="flex flex-col gap-4">
 				<p class="font-antarctica font-light text-gray-700 text-sm leading-relaxed">
 					Thuraya-4 is Space42's next-generation geostationary satellite, delivering sovereign,
-					secure, and resilient connectivity across the Middle East, Africa, Central Asia, and Europe.
+					secure, and resilient connectivity across the Middle East, Africa, Central Asia, and
+					Europe.
 				</p>
 				<p class="font-antarctica font-light text-gray-700 text-sm leading-relaxed">
-					For customers, this means connectivity that does not fail when it matters most. Operations
-					remain connected across remote, mobile, and high-risk environments, eliminating coverage
-					gaps that can disrupt coordination, delay response, or compromise safety.
+					For customers, this means no loss of visibility. Operations can be monitored consistently
+					across borders, infrastructure, and environments regardless of weather, light, or terrain.
+					What was previously intermittent or delayed becomes continuous and reliable insight.
 				</p>
 			</div>
 			<div class="flex flex-col gap-4">
 				<p class="font-antarctica font-light text-gray-700 text-sm leading-relaxed">
 					Its software-defined architecture enables dynamic capacity allocation and resilient
-					performance, while its multi-path design — integrating L-band and S-band — ensures
-					seamless, end-to-end connectivity.
+					performance, while its integration within Space42’s multi-orbit system ensures seamless,
+					end-to-end connectivity.
 				</p>
 				<p class="font-antarctica font-light text-gray-700 text-sm leading-relaxed">
 					Looking ahead, Thuraya-4 is part of a broader roadmap that includes the development of Al

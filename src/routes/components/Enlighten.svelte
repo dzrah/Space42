@@ -10,14 +10,15 @@
 		</h2>
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
 			<p class="font-antarctica font-light text-sm lg:text-base leading-relaxed text-gray-800">
-				The implication of space technology is no longer a distant frontier; it has become an
-				essential layer of intelligence shaping how nations govern, how industries operate, and how
-				societies evolve.
+				The implication of Space technology has become an essential layer of intelligence, shaping
+				how nations govern, how industries operate, and how societies evolve.
 			</p>
 			<p class="font-antarctica font-light text-sm lg:text-base leading-relaxed text-gray-800">
-				From the UAE, Space42 is building one of the world's most advanced SpaceTech ecosystems,
-				bringing together satellite communications and geospatial intelligence, powered by AI, to
+				From the UAE, Space42 is building one of the world’s most advanced SpaceTech ecosystems,
+				bringing together satellite communications and geospatial intelligence, powered by AI,to
 				translate innovation in orbit into real-world impact on Earth.
+				<br />
+				<br /><span>Our vision is clear: to enlighten Earth from space.</span><br />
 			</p>
 		</div>
 	</Container>

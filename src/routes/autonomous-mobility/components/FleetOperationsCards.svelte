@@ -8,19 +8,21 @@
 			subtitle: 'Transforming geospatial data into operational intelligence',
 			image: '/digital twin screen grab.webp',
 			paragraphs: [
-				"GIQ is Space42's advanced geospatial intelligence platform, designed to integrate satellite imagery, sensor data, and advanced AI analytics into a unified operational environment.",
-				'While Foresight delivers continuous Earth observation, GIQ ingests SAR, optical, and multi-source data and applies AI-driven analytics to convert raw imagery into structured, actionable intelligence that can be used across missions, sectors, and decision environments.',
-				'This removes the biggest barrier in geospatial workflows: the gap between data collection and usable insight. Through GIQ, organisations gain access to a unified platform that delivers timely, interpretable, and directly applicable intelligence, moving away from managing fragmented datasets, complex tools, and manual analysis processes.'
+				'Space42’s Digital Twin platform creates dynamic, real-time representations of physical environments, enabling organisations to simulate, predict, and optimise outcomes before actions are taken in the real world.',
+				'While GIQ provides intelligence on what is happening, the Digital Twin layer, extends this capability by modelling what could happen next. It integrates continuous data inputs from Space42’s ecosystem, including Foresight SAR, multi-source Earth observation, and AI-driven analytics, to create a live, evolving operational environment.',
+				'This drives decision making based on real-time context, forward-looking scenarios, and measurable outcomes, enabling more confident planning and execution.'
 			]
 		},
 		{
 			title: 'Autonomous Mobility Control Centre',
-			subtitle: 'Secure access to geospatial data and analytics services',
+			subtitle:
+				'The platform includes a centralized operations systems, allowing operators to monitor and manage autonomous fleets in real time.',
 			image: '/GIX screen grab.webp',
 			paragraphs: [
-				"GIX is Space42's secure, operational geospatial intelligence platform, designed for environments where intelligence must be produced, managed, and acted on within controlled, mission-critical settings.",
-				'While GIQ enables broad access to geospatial intelligence at scale, GIX is built for organisations that require end-to-end control over the intelligence lifecycle, from tasking and collection through to analysis and decision-making. It is designed to operate within sovereign, restricted, or high-security environments, where data sensitivity, workflow control, and operational assurance are critical.',
-				'This means intelligence is generated faster, as well as being managed, secured, and operationalised within their own environment, without dependency on external systems or fragmented workflows.'
+				'- Real-time vehicle monitoring',
+				'- Route planning and fleet coordination',
+				'- Incident response and safety supervision',
+				'- Operational analytics'
 			]
 		}
 	];
@@ -47,7 +49,11 @@
 					</p>
 					<!-- Image -->
 					<img
-				loading="lazy" src={card.image} alt={card.title} class="w-full h-56 lg:h-72 object-cover" />
+						loading="lazy"
+						src={card.image}
+						alt={card.title}
+						class="w-full h-56 lg:h-72 object-cover"
+					/>
 					<!-- Paragraphs -->
 					{#each card.paragraphs as para}
 						<p class="font-antarctica font-light text-gray-700 text-sm leading-relaxed">

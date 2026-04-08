@@ -45,11 +45,11 @@
 
 	function restartInterval() {
 		clearInterval(interval);
-		interval = setInterval(next, 5000);
+		interval = setInterval(next, 15000);
 	}
 
 	$effect(() => {
-		interval = setInterval(next, 5000);
+		interval = setInterval(next, 15000);
 		return () => clearInterval(interval);
 	});
 </script>
@@ -60,7 +60,6 @@
 
 <!-- Fixed height hero wrapper — overflow-visible so satellite can bleed below -->
 <div class="relative w-full h-[300px] md:h-[320px] lg:h-[360px] xl:h-[400px] overflow-visible">
-
 	<!-- Background images clipped separately -->
 	<div class="absolute inset-0 overflow-hidden">
 		{#each slides as slide, i}
@@ -69,24 +68,33 @@
 				alt=""
 				loading={i === 0 ? 'eager' : 'lazy'}
 				fetchpriority={i === 0 ? 'high' : 'auto'}
-				class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-700 {i === current ? 'opacity-100' : 'opacity-0'}"
+				class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-700 {i ===
+				current
+					? 'opacity-100'
+					: 'opacity-0'}"
 			/>
 		{/each}
 	</div>
 
 	<!-- Slide content -->
 	<Container class="relative z-10 h-full flex items-center justify-between">
-
 		<!-- Left: text full width on mobile, 3/5 on md+ -->
 		<div class="relative w-full md:w-3/5 h-full flex items-center">
 			{#each slides as slide, i}
 				<div
-					class="absolute inset-0 flex flex-col justify-center gap-2 md:gap-3 pb-10 transition-opacity duration-500 {i === current ? 'opacity-100' : 'opacity-0 pointer-events-none'}"
+					class="absolute inset-0 flex flex-col justify-center gap-2 md:gap-3 pb-10 transition-opacity duration-500 {i ===
+					current
+						? 'opacity-100'
+						: 'opacity-0 pointer-events-none'}"
 				>
-					<h1 class="font-antarctica font-semibold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-wide text-white leading-tight">
+					<h1
+						class="font-antarctica font-semibold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl tracking-wide text-white leading-tight"
+					>
 						{slide.title}
 					</h1>
-					<p class="font-antarctica font-light text-xs sm:text-sm lg:text-base text-white">{slide.subtitle}</p>
+					<p class="font-antarctica font-light text-xs sm:text-sm lg:text-base text-white">
+						{slide.subtitle}
+					</p>
 					<p class="font-antarctica font-light text-xs lg:text-sm leading-relaxed text-white/80">
 						{slide.description}
 					</p>
@@ -110,12 +118,14 @@
 						src={slide.image}
 						alt={slide.title}
 						loading="lazy"
-						class="absolute bottom-0 right-0 translate-y-1/4 h-full w-auto object-contain transition-opacity duration-500 {i === current ? 'opacity-100' : 'opacity-0'}"
+						class="absolute bottom-0 right-0 translate-y-1/4 h-full w-auto object-contain transition-opacity duration-500 {i ===
+						current
+							? 'opacity-100'
+							: 'opacity-0'}"
 					/>
 				{/if}
 			{/each}
 		</div>
-
 	</Container>
 
 	<!-- Dot navigation -->
@@ -123,10 +133,12 @@
 		{#each slides as _, i}
 			<button
 				onclick={() => goTo(i)}
-				class="w-2 h-2 rounded-full border border-white transition-all duration-300 cursor-pointer {i === current ? 'bg-white' : 'bg-transparent'}"
+				class="w-2 h-2 rounded-full border border-white transition-all duration-300 cursor-pointer {i ===
+				current
+					? 'bg-white'
+					: 'bg-transparent'}"
 				aria-label="Go to slide {i + 1}"
 			></button>
 		{/each}
 	</div>
-
 </div>

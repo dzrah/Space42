@@ -135,8 +135,11 @@
 		<div class="form-section-wrapper">
 			<!-- Left side: Text content -->
 			<div class="form-text-side">
-				<h2 class="form-title">Start Your Thuraya-4 Deployment</h2>
-				<p class="form-subtitle">Speak with a specialist on products, services, and timelines</p>
+				<h2 class="form-title">Connect with Space42</h2>
+				<p class="form-subtitle">
+					Whether you’re exploring secure connectivity, geospatial intelligence, or integrated
+					solutions, share your requirements and we’ll connect you with the right team.
+				</p>
 				<p class="form-mandatory">* Mandatory Field</p>
 			</div>
 

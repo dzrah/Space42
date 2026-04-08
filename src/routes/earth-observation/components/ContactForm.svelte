@@ -99,8 +99,8 @@
 					Turn visibility into action
 				</h2>
 				<p class="font-antarctica font-light text-gray-600 text-sm leading-relaxed mb-6">
-					Share your requirements and we'll connect you with the right solution. Tell us about your
-					environment to get started.
+					Share your requirements and we’ll connect you with the right capabilities to deliver
+					continuous visibility and actionable insight.
 				</p>
 				<p class="font-antarctica font-light text-gray-500 text-xs">* Mandatory Field</p>
 			</div>
