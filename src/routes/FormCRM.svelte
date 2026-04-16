@@ -7,213 +7,57 @@
 		'https://cxppusa1formui01cdnsa01-endpoint.azureedge.net/uae/FormLoader/FormLoader.bundle.js';
 
 	onMount(() => {
-		const wrapper = document.querySelector('.dynamics-form-wrapper');
-		if (!wrapper) return;
-
-		// Re-run styling whenever Dynamics mutates the DOM inside the wrapper
-		const observer = new MutationObserver(() => fixFormWidth(wrapper));
-		observer.observe(wrapper, { childList: true, subtree: true });
-
 		// Load the Dynamics FormLoader once (guard against duplicates on HMR/remount)
 		if (!document.querySelector(`script[src="${SCRIPT_SRC}"]`)) {
 			const script = document.createElement('script');
 			script.src = SCRIPT_SRC;
 			script.onerror = () => console.error('Dynamics FormLoader failed to load');
 			document.body.appendChild(script);
-		} else {
-			// Already loaded — style whatever is there now
-			fixFormWidth(wrapper);
 		}
-		``;
+
+		// CSS handles styling. JS only handles things CSS can't do reliably:
+		//   - Wrapping the checklist options container (needs DOM traversal)
+		//   - Distinguishing option labels from field labels (needs sibling check)
+		const wrapper = document.querySelector('.dynamics-form-wrapper');
+		if (!wrapper) return;
+
+		const applyStructuralFixes = () => {
+			// Tag option labels so CSS can target them
+			wrapper.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach((input) => {
+				// Mark the input's row (its parent) for CSS
+				const row = input.parentElement;
+				if (row && !row.hasAttribute('data-option-row')) {
+					row.setAttribute('data-option-row', 'true');
+				}
+				// Mark the label next to the checkbox as an option label
+				const sibling = input.nextElementSibling;
+				if (sibling && sibling.tagName === 'LABEL' && !sibling.hasAttribute('data-option-label')) {
+					sibling.setAttribute('data-option-label', 'true');
+				}
+				const parentLabel = input.closest('label');
+				if (parentLabel && !parentLabel.hasAttribute('data-option-label')) {
+					parentLabel.setAttribute('data-option-label', 'true');
+				}
+			});
+
+			// Tag the options container (parent of option rows) so CSS can wrap it in a box
+			wrapper.querySelectorAll('.multiOptionSetFormFieldBlock').forEach((block) => {
+				if (block.getAttribute('data-hide') === 'hide') return;
+				const firstRow = block.querySelector('[data-option-row="true"]');
+				const container = firstRow?.parentElement;
+				if (container && container !== block && !container.hasAttribute('data-options-box')) {
+					container.setAttribute('data-options-box', 'true');
+				}
+			});
+		};
+
+		// Run now, then re-run whenever Dynamics mutates the DOM
+		applyStructuralFixes();
+		const observer = new MutationObserver(applyStructuralFixes);
+		observer.observe(wrapper, { childList: true, subtree: true });
 
 		return () => observer.disconnect();
 	});
-
-	function fixFormWidth(wrapper) {
-		if (!wrapper) return;
-
-		// Font on the whole form
-		const form = wrapper.querySelector('.marketingForm');
-		if (form) form.style.fontFamily = "'Antartica', sans-serif";
-
-		// 1. Text inputs / textareas / selects — full width (EXCLUDE checkbox & radio)
-		wrapper
-			.querySelectorAll('input:not([type="checkbox"]):not([type="radio"]), textarea, select')
-			.forEach((el) => {
-				el.style.cssText = `
-          width: 100% !important;
-          max-width: 100% !important;
-          min-width: 100% !important;
-          flex: none !important;
-          flex-basis: 100% !important;
-          flex-grow: 0 !important;
-          flex-shrink: 0 !important;
-          display: block !important;
-          padding: 14px 16px !important;
-          background-color: #ffffff !important;
-          border: 1px solid #e5e7eb !important;
-          border-radius: 8px !important;
-          font-size: 16px !important;
-          font-family: 'Antartica', sans-serif !important;
-          color: #374151 !important;
-          box-sizing: border-box !important;
-          height: auto !important;
-        `;
-			});
-
-		// 2. Textareas — taller + resizable
-		wrapper.querySelectorAll('textarea').forEach((el) => {
-			el.style.minHeight = '120px';
-			el.style.resize = 'vertical';
-		});
-
-		// 3. Checkboxes & radios — keep small and inline
-		wrapper.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach((el) => {
-			el.style.cssText = `
-        width: 18px !important;
-        height: 18px !important;
-        min-width: 18px !important;
-        max-width: 18px !important;
-        margin: 0 10px 0 0 !important;
-        padding: 0 !important;
-        flex: none !important;
-        display: inline-block !important;
-        vertical-align: middle !important;
-        accent-color: #1e40af !important;
-        cursor: pointer !important;
-      `;
-		});
-
-		// 4. Each option row in multi-option set → flex row
-		wrapper
-			.querySelectorAll(
-				'.multiOptionSetFormFieldBlock input[type="checkbox"], .multiOptionSetFormFieldBlock input[type="radio"]'
-			)
-			.forEach((box) => {
-				const row = box.parentElement;
-				if (row) {
-					row.style.cssText = `
-            display: flex !important;
-            align-items: center !important;
-            gap: 10px !important;
-            padding: 6px 0 !important;
-            width: 100% !important;
-          `;
-				}
-			});
-
-		// 5. Wrap the options container in a bordered box to match inputs
-		wrapper.querySelectorAll('.multiOptionSetFormFieldBlock').forEach((block) => {
-			if (block.getAttribute('data-hide') === 'hide') return;
-
-			const firstBox = block.querySelector('input[type="checkbox"], input[type="radio"]');
-			if (!firstBox) return;
-
-			const row = firstBox.closest('div');
-			const optionsContainer = row?.parentElement;
-
-			if (optionsContainer && optionsContainer !== block && !optionsContainer.matches('label')) {
-				optionsContainer.style.cssText = `
-          background-color: #ffffff !important;
-          border: 1px solid #e5e7eb !important;
-          border-radius: 8px !important;
-          padding: 8px 16px !important;
-          width: 100% !important;
-          box-sizing: border-box !important;
-        `;
-			}
-		});
-
-		// 6. Field block layout (skip hidden)
-		wrapper
-			.querySelectorAll(
-				'.textFormFieldBlock, .optionSetFormFieldBlock, .phoneFormFieldBlock, .lookupFormFieldBlock, .dateTimeFormFieldBlock, .multiOptionSetFormFieldBlock, .twoOptionFormFieldBlock'
-			)
-			.forEach((el) => {
-				if (el.getAttribute('data-hide') === 'hide') {
-					el.style.cssText = 'display: none !important;';
-					return;
-				}
-				el.style.cssText = `
-          display: block !important;
-          width: 100% !important;
-          max-width: 100% !important;
-          padding: 0 0 16px !important;
-          margin: 0 !important;
-          box-sizing: border-box !important;
-          flex-direction: unset !important;
-          gap: unset !important;
-        `;
-			});
-
-		// 7. Labels — field labels vs option labels behave differently
-		wrapper.querySelectorAll('label').forEach((el) => {
-			const target = el.htmlFor ? document.getElementById(el.htmlFor) : null;
-			const isOptionLabel =
-				(target && (target.type === 'checkbox' || target.type === 'radio')) ||
-				el.parentElement?.querySelector('input[type="checkbox"], input[type="radio"]');
-
-			if (isOptionLabel) {
-				el.style.cssText = `
-          display: inline-block !important;
-          width: auto !important;
-          flex: 1 !important;
-          margin: 0 !important;
-          font-size: 15px !important;
-          font-weight: 400 !important;
-          font-family: 'Antartica', sans-serif !important;
-          color: #374151 !important;
-          cursor: pointer !important;
-          vertical-align: middle !important;
-        `;
-			} else {
-				el.style.cssText = `
-          display: block !important;
-          width: 100% !important;
-          flex: none !important;
-          margin-bottom: 8px !important;
-          font-size: 14px !important;
-          font-weight: 600 !important;
-          font-family: 'Antartica', sans-serif !important;
-          color: #374151 !important;
-        `;
-			}
-		});
-
-		// 8. Hide Dynamics text/heading blocks
-		wrapper.querySelectorAll('[data-editorblocktype="Text"]').forEach((el) => {
-			el.style.display = 'none';
-		});
-
-		// 9. Submit button
-		wrapper.querySelectorAll('.submitButton').forEach((el) => {
-			el.style.cssText = `
-        background-color: #1e40af !important;
-        color: #ffffff !important;
-        font-weight: 600 !important;
-        font-size: 14px !important;
-        font-family: 'Antartica', sans-serif !important;
-        padding: 14px 48px !important;
-        border: none !important;
-        border-radius: 8px !important;
-        cursor: pointer !important;
-      `;
-		});
-
-		// 10. Submit button wrapper — right-aligned
-		wrapper.querySelectorAll('.submitButtonWrapper').forEach((el) => {
-			el.style.cssText = `
-        padding: 20px 0 !important;
-        text-align: right !important;
-        width: 100% !important;
-      `;
-		});
-
-		// 11. Strip padding from nested containers
-		wrapper.querySelectorAll('.inner, .columnContainer, th, td').forEach((el) => {
-			el.style.padding = '0';
-		});
-	}
 </script>
 
 <Section bgClass="bg-[#f0f1f7]">
@@ -229,7 +73,7 @@
 				<p class="form-mandatory">* Mandatory Field</p>
 			</div>
 
-			<!-- Right: Dynamics Form (anchor moved inside) -->
+			<!-- Right: Dynamics Form -->
 			<div id="contact" class="form-container-side">
 				<div class="dynamics-form-wrapper">
 					<div
@@ -244,6 +88,7 @@
 </Section>
 
 <style>
+	/* ===== Layout ===== */
 	.form-section-wrapper {
 		display: flex;
 		flex-direction: column;
@@ -328,5 +173,156 @@
 
 	.dynamics-form-wrapper {
 		width: 100%;
+	}
+
+	/* ===== Dynamics form overrides =====
+     :global is required because Svelte scopes styles by default,
+     and Dynamics-injected DOM won't have Svelte's scoping hash. */
+
+	:global(.dynamics-form-wrapper .marketingForm) {
+		font-family: 'Antartica', sans-serif !important;
+	}
+
+	/* --- Text inputs, textareas, selects --- */
+	:global(
+		.dynamics-form-wrapper
+			input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='button'])
+	),
+	:global(.dynamics-form-wrapper textarea),
+	:global(.dynamics-form-wrapper select) {
+		width: 100% !important;
+		max-width: 100% !important;
+		min-width: 0 !important;
+		flex: none !important;
+		display: block !important;
+		padding: 14px 16px !important;
+		background-color: #ffffff !important;
+		border: 1px solid #e5e7eb !important;
+		border-radius: 8px !important;
+		font-size: 16px !important;
+		font-family: 'Antartica', sans-serif !important;
+		color: #374151 !important;
+		box-sizing: border-box !important;
+		height: auto !important;
+	}
+
+	:global(.dynamics-form-wrapper textarea) {
+		min-height: 120px !important;
+		resize: vertical !important;
+	}
+
+	/* --- Checkboxes & radios --- */
+	:global(.dynamics-form-wrapper input[type='checkbox']),
+	:global(.dynamics-form-wrapper input[type='radio']) {
+		width: 18px !important;
+		height: 18px !important;
+		min-width: 18px !important;
+		max-width: 18px !important;
+		flex: none !important;
+		display: inline-block !important;
+		margin: 0 10px 0 0 !important;
+		padding: 0 !important;
+		vertical-align: middle !important;
+		accent-color: #1e40af !important;
+		cursor: pointer !important;
+	}
+
+	/* --- Option rows (tagged by JS) --- */
+	:global(.dynamics-form-wrapper [data-option-row='true']) {
+		display: flex !important;
+		align-items: center !important;
+		gap: 10px !important;
+		padding: 6px 0 !important;
+		width: 100% !important;
+		flex-direction: row !important;
+	}
+
+	/* --- Field block layout --- */
+	:global(.dynamics-form-wrapper .textFormFieldBlock),
+	:global(.dynamics-form-wrapper .optionSetFormFieldBlock),
+	:global(.dynamics-form-wrapper .phoneFormFieldBlock),
+	:global(.dynamics-form-wrapper .lookupFormFieldBlock),
+	:global(.dynamics-form-wrapper .dateTimeFormFieldBlock),
+	:global(.dynamics-form-wrapper .multiOptionSetFormFieldBlock),
+	:global(.dynamics-form-wrapper .twoOptionFormFieldBlock) {
+		display: block !important;
+		width: 100% !important;
+		max-width: 100% !important;
+		padding: 0 0 16px !important;
+		margin: 0 !important;
+		box-sizing: border-box !important;
+		flex-direction: unset !important;
+		gap: unset !important;
+	}
+
+	:global(.dynamics-form-wrapper [data-hide='hide']) {
+		display: none !important;
+	}
+
+	/* --- Field labels (default) --- */
+	:global(.dynamics-form-wrapper label) {
+		display: block !important;
+		width: 100% !important;
+		flex: none !important;
+		margin-bottom: 8px !important;
+		font-size: 14px !important;
+		font-weight: 600 !important;
+		font-family: 'Antartica', sans-serif !important;
+		color: #374151 !important;
+	}
+
+	/* --- Option labels override field label rule --- */
+	:global(.dynamics-form-wrapper label[data-option-label='true']) {
+		display: inline-block !important;
+		width: auto !important;
+		flex: 1 !important;
+		margin: 0 !important;
+		font-size: 15px !important;
+		font-weight: 400 !important;
+		color: #374151 !important;
+		cursor: pointer !important;
+		vertical-align: middle !important;
+	}
+
+	/* --- Checklist container — bordered box (tagged by JS) --- */
+	:global(.dynamics-form-wrapper [data-options-box='true']) {
+		background-color: #ffffff !important;
+		border: 1px solid #e5e7eb !important;
+		border-radius: 8px !important;
+		padding: 8px 16px !important;
+		width: 100% !important;
+		box-sizing: border-box !important;
+	}
+
+	/* --- Hide Dynamics rich-text blocks --- */
+	:global(.dynamics-form-wrapper [data-editorblocktype='Text']) {
+		display: none !important;
+	}
+
+	/* --- Submit button --- */
+	:global(.dynamics-form-wrapper .submitButton) {
+		background-color: #1e40af !important;
+		color: #ffffff !important;
+		font-weight: 600 !important;
+		font-size: 14px !important;
+		font-family: 'Antartica', sans-serif !important;
+		padding: 14px 48px !important;
+		border: none !important;
+		border-radius: 8px !important;
+		cursor: pointer !important;
+	}
+
+	:global(.dynamics-form-wrapper .submitButtonWrapper) {
+		padding: 20px 0 !important;
+		text-align: right !important;
+		width: 100% !important;
+	}
+
+	/* --- Strip inherited padding from nested containers --- */
+	:global(.dynamics-form-wrapper .inner),
+	:global(.dynamics-form-wrapper .columnContainer),
+	:global(.dynamics-form-wrapper th),
+	:global(.dynamics-form-wrapper td) {
+		padding: 0 !important;
 	}
 </style>
