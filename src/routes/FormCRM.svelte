@@ -65,7 +65,7 @@
 		<div class="form-section-wrapper">
 			<!-- Left: Text -->
 			<div class="form-text-side">
-				<h2 class="form-title">Connect with Space42</h2>
+				<h1 class="form-title">Connect with Space42</h1>
 				<p class="form-subtitle">
 					Whether you're exploring secure connectivity, geospatial intelligence, or integrated
 					solutions, share your requirements and we'll connect you with the right team.
