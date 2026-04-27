@@ -12,7 +12,7 @@
 		{
 			name: 'Karim Michel Sabbagh',
 			title: 'Managing Director',
-			photo: '/Karim.webp'
+			photo: '/Karim-round-2.png'
 		},
 		{
 			name: 'Hasan Al Hosani',
@@ -57,9 +57,7 @@
 	];
 </script>
 
-<Section
-	bgClass="bg-[url('/blue_dark.webp')] bg-cover bg-center"
->
+<Section bgClass="bg-[url('/blue_dark.webp')] bg-cover bg-center">
 	<Container class="py-16 lg:py-24">
 		<!-- Leadership Team -->
 		<h2 class="font-antarctica font-semibold text-white text-2xl lg:text-3xl mb-12">
@@ -74,7 +72,7 @@
 						class="w-16 h-16 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden ring-2 ring-[#1a3a6b] bg-[#0a1840] shrink-0"
 					>
 						<img
-				loading="lazy"
+							loading="lazy"
 							src={member.photo}
 							alt={member.name}
 							class="w-full h-full object-cover"
